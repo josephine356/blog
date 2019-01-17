@@ -1,19 +1,91 @@
 html, body {
-  margin: 0;
   height: 100%;
 }
 
 body {
-  padding: 20px;
-  background: url("/static/main/img/background.png") fixed;
+   margin: 0;
+  padding: 0;
+  background: white fixed;
   background-repeat: repeat;
 }
 
-ul#menu {
-  margin-bottom: 30px;
+ul#menu {/* home的方框設定 */
+margin:auto;
+padding:0;
+height:8em;
   text-align: right;
+  background-color:black;
 }
 
-ul#menu li {
+ul#menu li { /* home等的文字設定 */
+  padding-top:1.5em;
+  text-align: right;
   display: inline-block;
+  margin-right: 1em;
+  font-size:1.5em;
+}
+
+ul#menu li a{
+  font-size: 1.5em;           
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 0.5em;
+}
+
+img{
+ width:20%;
+ height:20%;
+}
+
+img#homephoto{
+   width:100%;
+  height:100%;
+}
+ul#menu img{
+  position: absolute;
+  top:0;
+  left:0;
+  width:8em;
+  height:8em;
+}
+
+h1{
+  text-align-last:center;
+}
+
+
+
+.btn {/* Button */
+  font-family: Arial;
+  display: inline-block;
+  color: black;
+  font-size: 0.8em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border: thin solid gray;
+  background: linear-gradient(#f7f7f7, #dedede);
+}
+
+/* Messages */
+.success, .error {
+  padding: 1em 0 1em 3em;
+}
+
+.success {
+  background-color: #ddffdd;
+  border: thin solid green;
+}
+
+.error {
+  background-color: #fbd9d8;
+  border: thin solid red;  
+}
+
+input[type=text] {
+  padding: 0.4em;
+}
+
+p{
+  text-align: left;
+  padding-left:2em;
 }
