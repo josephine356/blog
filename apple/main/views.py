@@ -12,4 +12,8 @@ def add(request):
     Render the add page
     '''
     return render(request, 'main/add.html')
-
+def sign(request):
+    '''
+    Render the sign page
+    '''
+    return render(request, 'main/sign.html')
