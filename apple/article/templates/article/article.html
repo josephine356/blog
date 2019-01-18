@@ -11,8 +11,9 @@
 <body>
 {% include 'main/menu.html' %}
 {% include 'produce/produce.html' %}
-<h2>歡迎來到我的部落格</h2>
-<br> 
+<h2>新品上架</h2>
+{% include 'main/messages.html' %}
+<p><a class="btn" href="{% url 'article:articleCreate' %}">新增產品</a></p>
 {% for article, comments in articles.items %}
   <h3>{{ article.title }}</h3>
   <p>發表時間：{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
