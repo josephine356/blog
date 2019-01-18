@@ -8,9 +8,9 @@ class Article(models.Model):
     def __str__(self):
         return self.title
     
-
     class Meta:
         ordering = ['-pubDateTime']
+
 
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
@@ -19,6 +19,8 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.article.title + '-' + str(self.id)
+    
+    
     class Meta:
         ordering = ['pubDateTime']
 # Create your models here.

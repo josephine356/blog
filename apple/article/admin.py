@@ -7,11 +7,9 @@ class CommentModelAdmin(admin.ModelAdmin):
     list_display_links = ['article']
     list_filter = ['article', 'content']
     search_fields = ['content']
-    list_editable = ['content']
- 
     class Meta:
         model = Comment
 
 admin.site.register(Article)
-admin.site.register(Comment, CommentModelAdmin)
+admin.site.register(Comment,CommentModelAdmin)
 # Register your models here.

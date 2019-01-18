@@ -55,8 +55,8 @@ h1{
 
 
 
-.btn {/* Button */
-  font-family: Arial;
+/* Button */
+.btn {
   display: inline-block;
   color: black;
   font-size: 0.8em;
