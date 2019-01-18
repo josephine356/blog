@@ -1,6 +1,10 @@
 <ul id="menu">
   <li><a href="{% url 'main:main' %}">Home</a></li>
-  <li><a href="{% url 'main:add' %}">Add</a></li>
-  <li><a href="{% url 'main:sign' %}">Sign in</a></li>
+      {% if user.is_authenticated %}
+    <li><a href="{% url 'account:logout' %}">log out ({{ user.username }})</a></li>
+  {% else %}
+  <li><a href="{% url 'account:register' %}">Add</a></li>
+  {% endif %}
+  <li><a href="{% url 'account:login' %}">Sign in</a></li>
   <li><a href="{% url 'article:article' %}">New produce</a></li>
 </ul>
