@@ -3,6 +3,8 @@ from django.contrib import messages
 from watch.models import Watch, Comment
 from watch.forms import WatchForm
 from django.db.models.query_utils import Q
+from main.views import admin_required
+
 
 
 def watch(request):
@@ -14,7 +16,7 @@ def watch(request):
         watchs.update({watch:Comment.objects.filter(watch=watch)})
     context = {'watchs':watchs}
     return render(request, 'watch/watch.html', context)
-
+@admin_required
 def watchCreate(request):
     '''
     Create a new watch instance
@@ -48,7 +50,7 @@ def watchRead(request, iphoneId):
         'comments': Comment.objects.filter(watch=watch)
     }
     return render(request, 'watch/watchRead.html', context)
-
+@admin_required
 def watchUpdate(request, watchId):
     '''
     Update the watch instance:
@@ -71,7 +73,7 @@ def watchUpdate(request, watchId):
     watchForm.save()
     messages.success(request, '文章已修改') 
     return redirect('watch:watchRead', watchId=watchId)
-
+@admin_required
 def watchDelete(request, iphoneId):
     '''
     Delete the watch instance:

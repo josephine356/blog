@@ -3,6 +3,7 @@ from django.contrib import messages
 from iphone.models import Iphone, Comment
 from iphone.forms import IphoneForm
 from django.db.models.query_utils import Q
+from main.views import admin_required
 
 
 def iphone(request):
@@ -14,7 +15,7 @@ def iphone(request):
         iphones.update({iphone:Comment.objects.filter(iphone=iphone)})
     context = {'iphones':iphones}
     return render(request, 'iphone/iphone.html', context)
-
+@admin_required
 def iphoneCreate(request):
     '''
     Create a new iphone instance
@@ -48,7 +49,7 @@ def iphoneRead(request, iphoneId):
         'comments': Comment.objects.filter(iphone=iphone)
     }
     return render(request, 'iphone/iphoneRead.html', context)
-
+@admin_required
 def iphoneUpdate(request, iphoneId):
     '''
     Update the iphone instance:
@@ -71,7 +72,7 @@ def iphoneUpdate(request, iphoneId):
     iphoneForm.save()
     messages.success(request, '文章已修改') 
     return redirect('iphone:iphoneRead', iphoneId=iphoneId)
-
+@admin_required
 def iphoneDelete(request, iphoneId):
     '''
     Delete the iphone instance:

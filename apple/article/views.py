@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models.query_utils import Q
 from article.models import Article, Comment
 from article.forms import ArticleForm
+from main.views import admin_required
 
 
 def article(request):
@@ -14,7 +15,7 @@ def article(request):
         articles.update({article:Comment.objects.filter(article=article)})
     context = {'articles':articles}
     return render(request, 'article/article.html', context)
-
+@admin_required
 def articleCreate(request):
     '''
     Create a new article instance
@@ -34,6 +35,7 @@ def articleCreate(request):
     articleForm.save()
     messages.success(request, '文章已新增')
     return redirect('article:article')
+
 def articleRead(request, articleId):
     '''
     Read an article
@@ -47,6 +49,7 @@ def articleRead(request, articleId):
         'comments': Comment.objects.filter(article=article)
     }
     return render(request, 'article/articleRead.html', context)
+@admin_required
 def articleUpdate(request, articleId):
     '''
     Update the article instance:
@@ -69,6 +72,7 @@ def articleUpdate(request, articleId):
     articleForm.save()
     messages.success(request, '文章已修改') 
     return redirect('article:articleRead', articleId=articleId)
+@admin_required
 def articleDelete(request, articleId):
     '''
     Delete the article instance:
@@ -83,6 +87,7 @@ def articleDelete(request, articleId):
     article.delete()
     messages.success(request, '文章已刪除')  
     return redirect('article:article')
+
 def articleSearch(request):
     '''
     Search for articles:

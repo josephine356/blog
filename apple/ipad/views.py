@@ -3,6 +3,7 @@ from django.contrib import messages
 from ipad.models import Ipad, Comment
 from ipad.forms import IpadForm
 from django.db.models.query_utils import Q
+from main.views import admin_required
 
 
 def ipad(request):
@@ -14,7 +15,7 @@ def ipad(request):
         ipads.update({ipad:Comment.objects.filter(ipad=ipad)})
     context = {'ipads':ipads}
     return render(request, 'ipad/ipad.html', context)
-
+@admin_required
 def ipadCreate(request):
     '''
     Create a new ipad instance
@@ -48,7 +49,7 @@ def ipadRead(request, ipadId):
         'comments': Comment.objects.filter(ipad=ipad)
     }
     return render(request, 'ipad/ipadRead.html', context)
-
+@admin_required
 def ipadUpdate(request, ipadId):
     '''
     Update the ipad instance:
@@ -71,7 +72,7 @@ def ipadUpdate(request, ipadId):
     ipadForm.save()
     messages.success(request, '文章已修改') 
     return redirect('ipad:ipadRead', ipadId=ipadId)
-
+@admin_required
 def ipadDelete(request, ipadId):
     '''
     Delete the ipad instance:
