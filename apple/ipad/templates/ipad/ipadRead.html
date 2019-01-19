@@ -13,7 +13,9 @@
 {% include 'produce/produce.html' %}
 {% include 'main/messages.html' %}
 <h3 class="inlineBlock">{{ ipad.title }}</h3>
+{% if user.is_superuser %}
 <a class="btn inlineBlock" href="{% url 'ipad:ipadUpdate' ipad.id %}">修改</a>
+{% endif %}
 <p>發表時間：{{ ipad.pubDateTime|date:'Y-m-d H:i' }}</p>
 <div class="ipadContent">{{ ipad.content|linebreaks }}</div>
 {% for comment in comments %}

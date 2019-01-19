@@ -13,7 +13,9 @@
 {% include 'produce/produce.html' %}
 {% include 'main/messages.html' %}
 <h3 class="inlineBlock">{{ watch.title }}</h3>
+{% if user.is_superuser %}
 <a class="btn inlineBlock" href="{% url 'watch:watchUpdate' watch.id %}">修改</a>
+{% endif %}
 <p>發表時間：{{ watch.pubDateTime|date:'Y-m-d H:i' }}</p>
 {% for comment in comments %}
   <div class="commentDiv">

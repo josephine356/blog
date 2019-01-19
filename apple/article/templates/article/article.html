@@ -14,13 +14,16 @@
 <h2>Mac產品</h2>
 {% include 'article/searchForm.html' %}
 {% include 'main/messages.html' %}
-<p class="inlineBlock"><a class="btn" href="{% url 'article:articleCreate' %}">新增產品</a></p><br><br><hr>
+{% if user.is_superuser %}
+<p class="inlineBlock"><a class="btn" href="{% url 'article:articleCreate' %}">新增產品</a></p>{% endif %}<br><br><hr>
 {% for article, comments in articles.items %}
+
   <h3 class="inlineBlock"><a href="{% url 'article:articleRead' article.id %}">{{ article.title }}</a></h3>
-    <form class="inlineBlock" method="post" action="{% url 'article:articleDelete' article.id %}">
+{% if user.is_superuser %}<form class="inlineBlock" method="post" action="{% url 'article:articleDelete' article.id %}">
     {% csrf_token %}
     <input class="btn deleteConfirm" type="submit" value="刪除">
   </form>
+    {% endif %}
   <p>發表時間：{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
   <div class="articleContent">{{ article.content|linebreaks|truncatechars_html:30 }}</div>
   {% for comment in comments %}
