@@ -1,0 +1,25 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>ADD Proude</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'iphone/css/iphone.css' %}">
+</head>
+<body>
+{% include 'main/menu.html' %}
+{% if iphoneForm.instance.id %}
+  <h2>修改文章</h2>
+  <form method="post" action="{% url 'iphone:iphoneUpdate' iphoneForm.instance.id %}">
+{% else %}
+{% endif %}
+<h2>新增產品</h2>
+<form method="post" action="{% url 'iphone:iphoneCreate' %}">
+  {% csrf_token %}
+  {{ iphoneForm.as_p }}
+  <input  class="btn" type="submit" value="送出">
+  <a class="btn" href="{% url 'iphone:iphone' %}">放棄</a>
+</form>
+</body>
+</html>

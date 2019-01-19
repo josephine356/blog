@@ -1,0 +1,25 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>ADD Proude</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'ipad/css/ipad.css' %}">
+</head>
+<body>
+{% include 'main/menu.html' %}
+{% if ipadForm.instance.id %}
+  <h2>修改文章</h2>
+  <form method="post" action="{% url 'ipad:ipadUpdate' ipadForm.instance.id %}">
+{% else %}
+{% endif %}
+<h2>新增產品</h2>
+<form method="post" action="{% url 'ipad:ipadCreate' %}">
+  {% csrf_token %}
+  {{ ipadForm.as_p }}
+  <input  class="btn" type="submit" value="送出">
+  <a class="btn" href="{% url 'ipad:ipad' %}">放棄</a>
+</form>
+</body>
+</html>

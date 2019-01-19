@@ -1,0 +1,25 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>iPad</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'ipad/css/ipad.css' %}">
+</head>
+<body>
+{% include 'main/menu.html' %}
+{% include 'main/messages.html' %}
+<h3 class="inlineBlock">{{ ipad.title }}</h3>
+<a class="btn inlineBlock" href="{% url 'ipad:ipadUpdate' ipad.id %}">修改</a>
+<p>發表時間：{{ ipad.pubDateTime|date:'Y-m-d H:i' }}</p>
+<div class="ipadContent">{{ ipad.content|linebreaks }}</div>
+{% for comment in comments %}
+  <div class="commentDiv">
+    <span class="comment">{{ comment.content }}</span>
+    <br>
+    <span class="commentTime">{{ comment.pubDateTime|date:'Y-m-d H:i'}}</span>
+  </div>
+{% endfor %}
+</body>
+</html>
