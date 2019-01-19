@@ -95,7 +95,7 @@ def iphoneSearch(request):
         2. Use "searchTerm" for filtering
     '''
     searchTerm = request.GET.get('searchTerm')
-    iphones = iphone.objects.filter(Q(title__icontains=searchTerm) |
+    iphones = Iphone.objects.filter(Q(title__icontains=searchTerm) |
                                       Q(content__icontains=searchTerm))
-    context = {'iphones':iphones, 'searchTerm':searchTerm} 
+    context = {'iphone':iphones, 'searchTerm':searchTerm}
     return render(request, 'iphone/iphoneSearch.html', context)

@@ -96,7 +96,7 @@ def watchSearch(request):
         2. Use "searchTerm" for filtering
     '''
     searchTerm = request.GET.get('searchTerm')
-    watchs = watch.objects.filter(Q(title__icontains=searchTerm) |
+    watchs = Watch.objects.filter(Q(title__icontains=searchTerm) |
                                       Q(content__icontains=searchTerm))
     context = {'watchs':watchs, 'searchTerm':searchTerm} 
-    return render(request, 'watch/iwatchSearch.html', context)
+    return render(request, 'watch/watchSearch.html', context)
