@@ -5,10 +5,12 @@
 <title>ADD Proude</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
 <link rel="stylesheet" href="{% static 'ipad/css/ipad.css' %}">
 </head>
 <body>
 {% include 'main/menu.html' %}
+{% include 'produce/produce.html' %}
 {% if ipadForm.instance.id %}
   <h2>修改文章</h2>
   <form method="post" action="{% url 'ipad:ipadUpdate' ipadForm.instance.id %}">

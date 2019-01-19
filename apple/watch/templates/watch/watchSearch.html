@@ -2,27 +2,26 @@
 {% load staticfiles %}
 <html>
 <head>
-<title>iPhone</title>
+<title>Watch</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
-<link rel="stylesheet" href="{% static 'iphone/css/iphone.css' %}">
+<link rel="stylesheet" href="{% static 'watch/css/watch.css' %}">
 <link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
-
 </head>
 <body>
 {% include 'main/menu.html' %}
 {% include 'produce/produce.html' %}
 <h1>歡迎來到我的部落格</h1>
-{% include 'iphone/searchForm.html' %}
-{% if not iphones %}
+{% include 'watch/searchForm.html' %}
+{% if not watchs %}
   <p>查無資料</p>
 {% else %}
   <table class="table table-striped table-hover">
     <tr><th>標題</th><th>發表時間</th></tr>
-    {% for iphone in iphones %}
+    {% for watch in watchs %}
     <tr>
-      <td><a href="{% url 'iphone:iphoneRead' ipad.id %}">{{ iphone.title }}</a></td>
-      <td>{{ iphone.pubDateTime|date:'Y-m-d H:i' }}</td>
+      <td><a href="{% url 'watch:watchRead' watch.id %}">{{ watch.title }}</a></td>
+      <td>{{ watch.pubDateTime|date:'Y-m-d H:i' }}</td>
     </tr>
     {% endfor %}
   </table>

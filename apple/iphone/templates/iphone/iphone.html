@@ -2,7 +2,7 @@
 {% load staticfiles %}
 <html>
 <head>
-<title>ipad</title>
+<title>iphone</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 <link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
@@ -11,7 +11,7 @@
 <body>
 {% include 'main/menu.html' %}
 {% include 'produce/produce.html' %}
-<h2>iPad的產品</h2>
+<h2>iPhone的產品</h2>
 {% include 'main/messages.html' %}
 {% include 'iphone/searchForm.html' %}
 <p class="inlineBlock"><a class="btn" href="{% url 'iphone:iphoneCreate' %}">新增產品</a></p><br><br><hr>

@@ -1,8 +1,8 @@
-from populateee import base
+from populateeee import base
 from account.models import User
 
 
-def populateee(): 
+def populateeee(): 
     print('Creating apple account ... ', end='')
     User.objects.all().delete()
     User.objects.create_superuser(username='apple', password='apple10614063', email=None)
@@ -10,4 +10,4 @@ def populateee():
 
 
 if __name__ == '__main__':
-    populateee()
+    populateeee()

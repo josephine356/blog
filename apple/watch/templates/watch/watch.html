@@ -2,27 +2,27 @@
 {% load staticfiles %}
 <html>
 <head>
-<title>Mac</title>
+<title>Watch</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 <link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
-<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
+<link rel="stylesheet" href="{% static 'watch/css/watch.css' %}">
 </head>
 <body>
 {% include 'main/menu.html' %}
 {% include 'produce/produce.html' %}
-<h2>Mac產品</h2>
-{% include 'article/searchForm.html' %}
+<h2>Watch產品</h2>
 {% include 'main/messages.html' %}
-<p class="inlineBlock"><a class="btn" href="{% url 'article:articleCreate' %}">新增產品</a></p><br><br><hr>
-{% for article, comments in articles.items %}
-  <h3 class="inlineBlock"><a href="{% url 'article:articleRead' article.id %}">{{ article.title }}</a></h3>
-    <form class="inlineBlock" method="post" action="{% url 'article:articleDelete' article.id %}">
+{% include 'watch/searchForm.html' %}
+<p class="inlineBlock"><a class="btn" href="{% url 'watch:watchCreate' %}">新增產品</a></p><br><br><hr>
+{% for watch, comments in watchs.items %}
+  <h3 class="inlineBlock"><a href="{% url 'watch:watchRead' watch.id %}">{{ watch.title }}</a></h3>
+    <form class="inlineBlock" method="post" action="{% url 'watch:watchDelete' watch.id %}">
     {% csrf_token %}
     <input class="btn deleteConfirm" type="submit" value="刪除">
   </form>
-  <p>發表時間：{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
-  <div class="articleContent">{{ article.content|linebreaks|truncatechars_html:30 }}</div>
+  <p>發表時間：{{ watch.pubDateTime|date:'Y-m-d H:i' }}</p>
+  <div class="watchContent">{{watch.content|linebreaks|truncatechars_html:30 }}</div>
   {% for comment in comments %}
     <div class="commentDiv">
       <span class="comment">{{ comment.content }}</span>

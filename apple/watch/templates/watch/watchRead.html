@@ -2,20 +2,19 @@
 {% load staticfiles %}
 <html>
 <head>
-<title>Mac</title>
+<title>Watch</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'watch/css/watch.css' %}">
 <link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
-<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
 </head>
 <body>
 {% include 'main/menu.html' %}
 {% include 'produce/produce.html' %}
 {% include 'main/messages.html' %}
-<h3 class="inlineBlock">{{ article.title }}</h3>
-<a class="btn inlineBlock" href="{% url 'article:articleUpdate' article.id %}">修改</a>
-<p>發表時間：{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
-<div class="articleContent">{{ article.content|linebreaks }}</div>
+<h3 class="inlineBlock">{{ watch.title }}</h3>
+<a class="btn inlineBlock" href="{% url 'watch:watchUpdate' watch.id %}">修改</a>
+<p>發表時間：{{ watch.pubDateTime|date:'Y-m-d H:i' }}</p>
 {% for comment in comments %}
   <div class="commentDiv">
     <span class="comment">{{ comment.content }}</span>

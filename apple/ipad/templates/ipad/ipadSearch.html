@@ -5,11 +5,12 @@
 <title>iPad</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
 <link rel="stylesheet" href="{% static 'ipad/css/ipad.css' %}">
 </head>
 <body>
 {% include 'main/menu.html' %}
-
+{% include 'produce/produce.html' %}
 <h1>歡迎來到我的部落格</h1>
 {% include 'ipad/searchForm.html' %}
 {% if not ipads %}

@@ -26,5 +26,6 @@ urlpatterns = [
     path('article/', include('article.urls', namespace='article')),
     path('ipad/', include('ipad.urls', namespace='ipad')),
     path('iphone/', include('iphone.urls', namespace='iphone')),
+    path('watch/', include('watch.urls', namespace='watch')),
     re_path('.*', views.main),
 ]

@@ -5,10 +5,12 @@
 <title>iPad</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
 <link rel="stylesheet" href="{% static 'ipad/css/ipad.css' %}">
 </head>
 <body>
 {% include 'main/menu.html' %}
+{% include 'produce/produce.html' %}
 {% include 'main/messages.html' %}
 <h3 class="inlineBlock">{{ ipad.title }}</h3>
 <a class="btn inlineBlock" href="{% url 'ipad:ipadUpdate' ipad.id %}">修改</a>

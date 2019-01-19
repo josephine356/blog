@@ -2,13 +2,15 @@
 {% load staticfiles %}
 <html>
 <head>
-<title>iPad</title>
+<title>iPhone</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
 <link rel="stylesheet" href="{% static 'iphone/css/iphone.css' %}">
 </head>
 <body>
 {% include 'main/menu.html' %}
+{% include 'produce/produce.html' %}
 {% include 'main/messages.html' %}
 <h3 class="inlineBlock">{{ iphone.title }}</h3>
 <a class="btn inlineBlock" href="{% url 'iphone:iphoneUpdate' ipad.id %}">修改</a>

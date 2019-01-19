@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ipad',
     'iphone',
+    'watch',
     'account',
     'article',
     'main',
