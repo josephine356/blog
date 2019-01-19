@@ -22,7 +22,7 @@ def articleCreate(request):
         2. If method is POST, perform form validation and display error messages if the form is invalid
         3. Save the form to the model and redirect the user to the article page
     '''
-    template = 'article/articleCreateUpdate..html'
+    template = 'article/articleCreateUpdate.html'
     if request.method == 'GET':
         print(ArticleForm())
         return render(request, template, {'articleForm':ArticleForm()})

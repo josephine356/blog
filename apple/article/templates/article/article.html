@@ -11,8 +11,9 @@
 <body>
 {% include 'main/menu.html' %}
 {% include 'produce/produce.html' %}
-<h2>新品上架</h2>
+<h2>Mac產品</h2>
 {% include 'article/searchForm.html' %}
+{% include 'main/messages.html' %}
 <p class="inlineBlock"><a class="btn" href="{% url 'article:articleCreate' %}">新增產品</a></p><br><br><hr>
 {% for article, comments in articles.items %}
   <h3 class="inlineBlock"><a href="{% url 'article:articleRead' article.id %}">{{ article.title }}</a></h3>

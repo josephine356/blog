@@ -2,8 +2,8 @@ from populate import base
 from article.models import Article, Comment
 
 
-titles = ['如何像電腦科學家一樣思考', '10分鐘內學好Python', '簡單學習Django']
-comments = ['文章真棒', '並不認同您的觀點', '借分享', '學好一個程式語言或框架並不容易']
+titles = ['MacBook', 'MacBook Pro','MacBook Air','iMac','iMac Pro']
+comments = ['MacBook機型我很喜歡','如果有更多顏色可以選擇就好']
 
 
 def populate():
