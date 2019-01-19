@@ -5,8 +5,8 @@
 <title>iPhone</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
-<link rel="stylesheet" href="{% static 'iphone/css/iphone.css' %}">
 <link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
+<link rel="stylesheet" href="{% static 'iphone/css/iphone.css' %}">
 
 </head>
 <body>
@@ -22,7 +22,7 @@
     <tr><th>標題</th><th>發表時間</th></tr>
     {% for iphone in iphones %}
     <tr>
-      <td><a href="{% url 'iphone:iphoneRead' ipad.id %}">{{ iphone.title }}</a></td>
+      <td><a href="{% url 'iphone:iphoneRead' iphone.id %}">{{ iphone.title }}</a></td>
       <td>{{ iphone.pubDateTime|date:'Y-m-d H:i' }}</td>
     </tr>
     {% endfor %}
