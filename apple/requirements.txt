@@ -1,0 +1,8 @@
+dj-database-url==x.x.x
+dj-static==x.x.x
+Django==x.x.x
+django-toolbelt==x.x.x
+gunicorn==x.x.x
+psycopg2==x.x.x.x
+pytz==x.x
+static3==x.x.x

@@ -14,6 +14,9 @@ SECRET_KEY = '5svxa8daezrokm%$%lj1^t48yg9!1i-mm8h-d9#sh2nptt&cyu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+if 'DYNO' in os.environ:    # Running on Heroku
+    DEBUG = False
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -70,8 +73,8 @@ WSGI_APPLICATION = 'apple.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
+if DEBUG:   # Running on the development environment
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'appledb',
@@ -82,6 +85,13 @@ DATABASES = {
 
     }
 }
+    else:   # Running on Heroku
+    # Parse database configuration from $DATABASE_URL
+    import dj_database_url
+    DATABASES = {'default':dj_database_url.config()}
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
 # Password validation
@@ -123,3 +133,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'account.User'
 LOGIN_URL = '/account/login/'
+
+# For Heroku deployment
+STATIC_ROOT = 'staticfiles'
