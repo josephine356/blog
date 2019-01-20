@@ -49,7 +49,7 @@ def login(request):
     if nextURL:
         return redirect(nextURL)
     messages.success(request, '登入成功')
-    return redirect('main:m')
+    return redirect('main:main')
 def logout(request):
     '''
     Logout the user
