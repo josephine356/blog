@@ -5,8 +5,8 @@
 <title>Watch</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
-<link rel="stylesheet" href="{% static 'watch/css/watch.css' %}">
 <link rel="stylesheet" href="{% static 'good/css/produce.css' %}">
+<link rel="stylesheet" href="{% static 'watch/css/watch.css' %}">
 </head>
 <body>
 {% include 'main/menu.html' %}
@@ -17,6 +17,7 @@
 <a class="btn inlineBlock" href="{% url 'watch:watchUpdate' watch.id %}">修改</a>
 {% endif %}
 <p>發表時間：{{ watch.pubDateTime|date:'Y-m-d H:i' }}</p>
+<div class="watchContent">{{ ipad.content|linebreaks }}</div>
 {% for comment in comments %}
   <div class="commentDiv">
     <span class="comment">{{ comment.content }}</span>

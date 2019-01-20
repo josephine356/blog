@@ -37,14 +37,13 @@ def watchCreate(request):
     messages.success(request, '文章已新增')
     return redirect('watch:watch')
 
-def watchRead(request, iphoneId):
+def watchRead(request, watchId):
     '''
     Read an watch
-        1. Get the "watch" instance using "iphoneId"; redirect to the 404 page if not found
         2. Render the iphoneRead template with the watch instance and its
            associated comments
     '''
-    watch = get_object_or_404(Watch, id=iphoneId)
+    watch = get_object_or_404(Watch, id=watchId)
     context = {
         'watch': watch,
         'comments': Comment.objects.filter(watch=watch)
@@ -63,7 +62,7 @@ def watchUpdate(request, watchId):
     template = 'watch/watchCreateUpdate.html'
     if request.method == 'GET':
         watchForm = WatchForm(instance=watch)
-        return render(request, template, {'iphoneForm':watchForm})
+        return render(request, template, {'watchForm':watchForm})
 
     # POST
     watchForm = WatchForm(request.POST, instance=watch)
@@ -74,7 +73,7 @@ def watchUpdate(request, watchId):
     messages.success(request, '文章已修改') 
     return redirect('watch:watchRead', watchId=watchId)
 @admin_required
-def watchDelete(request, iphoneId):
+def watchDelete(request, watchId):
     '''
     Delete the watch instance:
         1. Render the watch page if the method is GET
@@ -84,7 +83,7 @@ def watchDelete(request, iphoneId):
         return redirect('watch:watch')
 
     # POST
-    watch = get_object_or_404(Watch, id=iphoneId)
+    watch = get_object_or_404(Watch, id=watchId)
     watch.delete()
     messages.success(request, '文章已刪除')  
     return redirect('watch:watch')

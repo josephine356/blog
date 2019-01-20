@@ -49,14 +49,14 @@ def login(request):
     if nextURL:
         return redirect(nextURL)
     messages.success(request, '登入成功')
-    return redirect('main:main')
+    return redirect('main:m')
 def logout(request):
     '''
     Logout the user
     '''
     auth_logout(request)
-    messages.success(request, '歡迎再度光臨')
-    return redirect('main:main')
+    messages.success(request, '你的帳號登出')
+    return redirect('account:login')
 
 
 

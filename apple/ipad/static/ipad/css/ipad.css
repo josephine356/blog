@@ -32,18 +32,18 @@ input[type=text] {
   font-size: 1.1em;
   padding: 10px 0 10px 10px;
   text-align: left;
-  background-color: #468cb1;
+  background-color: #EE7700;
   border-bottom: 1px solid black
 }
 
 .table td {
   color: #222222;
-  background-color: #e0e0e0;
+  background-color:  #FFBB66;
   padding: 12px 0 12px 10px;
 }
 
 .table-striped tr:nth-child(even) td {
-  background-color: #E1F9DC;
+  background-color:  #FFFF77;
 }
 
 .table-hover tr:hover td {

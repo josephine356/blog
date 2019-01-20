@@ -31,21 +31,21 @@ input[type=text] {
 .table th {
   font-size: 1.1em;
   padding: 10px 0 10px 10px;
-  text-align: left;
-  background-color: #99FFFF;
-  border-bottom: 1px solid black
+  text-align: left white;
+  background-color:#FFAA33;
+  border-bottom: 1px solid white
 }
 
 .table td {
-  color: #00DDAA;
-  background-color: #e0e0e0;
+  color: #CC6600;
+  background-color:#FFFFBB;
   padding: 12px 0 12px 10px;
 }
 
 .table-striped tr:nth-child(even) td {
-  background-color:  #0000CC;
+  background-color:  #FFEE99;
 }
 
 .table-hover tr:hover td {
-  background-color:  #009FCC;
+  background-color:  black;
 }
