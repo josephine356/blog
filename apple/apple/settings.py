@@ -81,9 +81,8 @@ if DEBUG:   # Running on the development environment
         'PASSWORD': 'apple',
         'HOST': 'localhost',
         'PORT': '',
-
+        }
     }
-}
 else:   # Running on Heroku
     # Parse database configuration from $DATABASE_URL
     import dj_database_url
