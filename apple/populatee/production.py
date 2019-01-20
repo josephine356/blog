@@ -1,4 +1,4 @@
-from populate import base
+from populatee import base
 
 from account.models import User
 
